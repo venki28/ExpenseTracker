@@ -10,22 +10,12 @@ document.getElementById('dataForm').addEventListener('submit', async (e) => {
         comments: document.getElementById('comments').value,
     };
 
-    try {
-        const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+  return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
+        .setMimeType(ContentService.MimeType.JSON)
+        .setContent(JSON.stringify({ status: "success" }))
+        .setHeaders({
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type"
         });
-
-        const result = await response.json();
-        if (result.status === 'success') {
-            alert('Data logged successfully!');
-        } else {
-            alert('Failed to log data.');
-        }
-    } catch (error) {
-        alert('Error: ' + error.message);
-    }
 });
