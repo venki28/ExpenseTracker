@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbykvhmkmkb8GBDsGD4wUoJxPvzcid9Gw5mcDx_1WTiqrqSJUW5YTQQTlUSgzVjMAFTLvw/exec'
+const scriptURL = 'https://script.googleusercontent.com/macros/echo?user_content_key=BMAmcsqQJNPozMfl6JZ31dRvZtRoCrq0fcNUYNtI-j_MJhPpkC6b0CDG1dKBX4UNRcsrp4nvx3JevVV_odY7xvjYp5HliZkom5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnDpXdHUTYYmN2TXKmbn62VXQBgfBJnccapM2bKtyJbmYbt28UZdv4EM-JOYN8SgV34JMz-B503NyLVKgRsbE2LHJPxyAKTLQNtz9Jw9Md8uuAQ&lib=MnDRMshGbi1MoqoVJwMQV8loeeCS1ka4Q'
 document.getElementById('dataForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
