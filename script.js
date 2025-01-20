@@ -1,5 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzI5nYVOQANXmBwgZXViWKtmlG46Z4nZvQ6FJHESRVXeynkk9sVCwdJ8HuHPED74pVsCA/exec'; // Replace with your script URL
-
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwSMGFCThq9bgQQEROxmlKnAz4c02dQHLUp2t4Zmck4X46iyGwIwY_ZM3Fsrh2BctTSfw/exec'
 document.getElementById('dataForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -10,12 +9,21 @@ document.getElementById('dataForm').addEventListener('submit', async (e) => {
         comments: document.getElementById('comments').value,
     };
 
-  return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
-        .setMimeType(ContentService.MimeType.JSON)
-        .setContent(JSON.stringify({ status: "success" }))
-        .setHeaders({
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "POST",
-            "Access-Control-Allow-Headers": "Content-Type"
+  try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          headers: { 'Content-Type': 'application/json' }
         });
+
+        const result = await response.json();
+        if (result.status === "success") {
+          alert('Expense added successfully!');
+        } else {
+          alert('Failed to add expense.');
+        }
+      } catch (error) {
+        console.error('Error!', error);
+        alert('Error adding expense.');
+      }
 });
