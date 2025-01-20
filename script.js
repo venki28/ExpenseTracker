@@ -9,7 +9,7 @@ document.getElementById('dataForm').addEventListener('submit', async (e) => {
         comments: document.getElementById('comments').value,
     };
 
-  try {
+ try {
         const response = await fetch(scriptURL, {
           method: 'POST',
           body: JSON.stringify(formData),
